@@ -1,5 +1,5 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h1 class="text-center">New Review</h1>
+
 
 
 <div class="container">
@@ -8,9 +8,11 @@
     <div class="col-xs-12 col-sm-3 col-sm-offset-3">
       <%= simple_form_for [@restaurant, @review] do |f| %>
       <%= f.input :content %>
+      <%= f.select :rating, Review::RATING, include_blank:"Rate your experience" %>
       <%= f.submit "add a review", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
 </div>
 
+<!-- <p>Find me in app/views/reviews/new.html.erb</p> -->

@@ -1,29 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @restaurant.name %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @restaurant.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @restaurant.description %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @restaurant.category %>
-</p>
+  <p>
+    <strong>Category:</strong>
+    <%= @restaurant.category %>
+  </p>
 
-<p>
-  <strong>Stars:</strong>
-  <%= @restaurant.stars %>
-</p>
+  <p>
+    <strong>Reviews:</strong>
+    <ul>
+      <% @restaurant.reviews.each do |rev| %>
+      <li>"<%= rev.content  %>" Rated:
+      <%= rev.rating  %></li>
+      <% end  %>
+    </ul>
+  </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+  <p>
+    <strong>Stars:</strong>
+    <%= @restaurant.stars %>
+  </p>
+
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %> |
+  <%= link_to 'New Review', new_restaurant_review_path(@restaurant) %>
+</div>
